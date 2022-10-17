@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "H6ePyislWsuszmkqbEwdlg9W7mSJeoRxESNFzWNQ77tQgONzY6nKfb1OdR4CiNwMBwFEZwW3lfV53z13mfuLiA==",
+  "dgSpecHash": "IhxMHdLB6WtDehnzBWuIE1goKS2yUq7c37Axr6E/cseQz5N5BITROSfpCe4CQnGomMYNHXYauEVG872FEZP3Vg==",
   "success": true,
   "projectFilePath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Backend/Backend.csproj",
   "expectedPackageFiles": [
+    "/home/masoud/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.data.sqlite.core/6.0.10/microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore/6.0.10/microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.10/microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",
+    "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.design/6.0.10/microsoft.entityframeworkcore.design.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.relational/6.0.10/microsoft.entityframeworkcore.relational.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.sqlite/6.0.10/microsoft.entityframeworkcore.sqlite.6.0.10.nupkg.sha512",
     "/home/masoud/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/6.0.10/microsoft.entityframeworkcore.sqlite.core.6.0.10.nupkg.sha512",

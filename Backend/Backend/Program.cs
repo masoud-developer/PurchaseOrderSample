@@ -1,9 +1,18 @@
+using Business.Classes;
+using Business.DataAccess;
+using Business.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration["ConnectionStrings:WebApiDatabase"];
+
 builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMvc();
+builder.Services.AddScoped<IPurchaseOrderBusiness, PurchaseOrderBusiness>();
+builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite(connectionString));
 
 var app = builder.Build();
 

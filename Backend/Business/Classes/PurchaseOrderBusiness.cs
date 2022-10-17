@@ -8,17 +8,24 @@ namespace Business.Classes;
 public class PurchaseOrderBusiness : IPurchaseOrderBusiness
 {
     private readonly AppDbContext _dbContext;
-    private Guid _currentUserId;
+    
+    //default userId
+    private Guid _currentUserId = Guid.Empty;
 
     public PurchaseOrderBusiness(AppDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<Result<PurchaseOrder>> Create(PurchaseOrder order)
+    public async Task<Result<PurchaseOrder>> CreateOrUpdate(PurchaseOrder order)
     {
-        if (order.Status == OrderStatus.Submitted)
-            return Result<PurchaseOrder>.Failed("Order and list items cannot be changed because order submitted.");
+        PurchaseOrder dbOrder = null;
+        if (order.Id != Guid.Empty)
+        {
+            dbOrder = await _dbContext.PurchaseOrders.FirstOrDefaultAsync(o => o.Id == order.Id);
+            if (dbOrder != null && dbOrder.Status == OrderStatus.Submitted)
+                return Result<PurchaseOrder>.Failed("Order and list items cannot be changed because order submitted.");
+        }
 
         if (order.Items.Count < 1)
             return Result<PurchaseOrder>.Failed("Order must have at least 1 item.");
@@ -32,7 +39,17 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
         order.UserId = _currentUserId;
 
         //save in db
-        await _dbContext.PurchaseOrders.AddAsync(order);
+        if (dbOrder == null)
+            await _dbContext.PurchaseOrders.AddAsync(order);
+        else
+        {
+            dbOrder.Items.Clear();
+            foreach (var item in order.Items)
+            {
+                dbOrder.Items.Add(item);
+            }
+        }
+
         await _dbContext.SaveChangesAsync();
 
         return Result<PurchaseOrder>.Success(order, "Order created successfully.");
@@ -43,13 +60,13 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
         var orders = await _dbContext.PurchaseOrders.ToListAsync();
         return Result<List<PurchaseOrder>>.Success(orders, "List successfully fetched.");
     }
-    
+
     public async Task<Result<PurchaseOrder>> Get(Guid orderId)
     {
         var order = _dbContext.PurchaseOrders.FirstOrDefault(o => o.Id == orderId);
-        if(order == null)
+        if (order == null)
             return Result<PurchaseOrder>.Failed("Order not found.");
-        
+
         return Result<PurchaseOrder>.Success(order, "order fetched successfully.");
     }
 
@@ -59,7 +76,7 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
             o.Id == orderId && o.UserId == _currentUserId);
         if (order == null)
             return Result<PurchaseOrder>.Failed("Order not found.");
-        
+
         //check user orders
         var today = DateTime.Now.Date;
         if (await _dbContext.PurchaseOrders.CountAsync(o => o.UserId == _currentUserId

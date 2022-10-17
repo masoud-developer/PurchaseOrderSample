@@ -15,10 +15,10 @@ public class PurchaseOrderController : ControllerBase
         _purchaseOrderBusiness = purchaseOrderBusiness;
     }
 
-    [HttpPost("create")]
+    [HttpPost("create-or-update")]
     public async Task<Result<PurchaseOrder>> Create(PurchaseOrder order)
     {
-        return await _purchaseOrderBusiness.Create(order);
+        return await _purchaseOrderBusiness.CreateOrUpdate(order);
     }
     
     [HttpGet("get/{orderId:guid}")]
