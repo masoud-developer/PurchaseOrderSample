@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj": {}
+  },
+  "projects": {
+    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj",
+        "projectName": "Business",
+        "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj",
+        "packagesPath": "/home/masoud/.nuget/packages/",
+        "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/masoud/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/home/masoud/local-nuget-packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj": {
+                "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/masoud/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+        "projectName": "Core",
+        "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+        "packagesPath": "/home/masoud/.nuget/packages/",
+        "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/masoud/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/home/masoud/local-nuget-packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/masoud/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

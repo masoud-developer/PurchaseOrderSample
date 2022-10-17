@@ -1,0 +1,18 @@
+<div>
+  <button mat-raised-button (click)="navigateToAddOrderPage()">Add Order</button>
+</div>
+
+<app-table [dataSource]="dataSource" [columns]="displayedColumns"
+           matSort sort="matSort">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data</td>
+  </tr>
+</app-table>
