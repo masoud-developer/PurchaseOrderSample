@@ -1256,11 +1256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Backend/Backend.csproj",
+      "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Backend/Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Backend/Backend.csproj",
+      "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Backend/Backend.csproj",
       "packagesPath": "/home/masoud/.nuget/packages/",
-      "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Backend/obj/",
+      "outputPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/masoud/.nuget/NuGet/NuGet.Config"
@@ -1276,11 +1276,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj": {
-              "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj"
+            "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj": {
+              "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj"
             },
-            "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj": {
-              "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj"
+            "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj": {
+              "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj"
             }
           }
         }

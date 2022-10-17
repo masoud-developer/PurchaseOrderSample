@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj": {}
+    "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj": {}
   },
   "projects": {
-    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj": {
+    "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj",
+        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj",
         "projectName": "Business",
-        "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/Business.csproj",
+        "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/Business.csproj",
         "packagesPath": "/home/masoud/.nuget/packages/",
-        "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Business/obj/",
+        "outputPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Business/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/masoud/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj": {
-                "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj"
+              "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj": {
+                "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj": {
+    "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+        "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+        "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj",
         "packagesPath": "/home/masoud/.nuget/packages/",
-        "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/obj/",
+        "outputPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/masoud/.nuget/NuGet/NuGet.Config"

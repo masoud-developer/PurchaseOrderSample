@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+      "projectUniqueName": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/Core.csproj",
+      "projectPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/Core.csproj",
       "packagesPath": "/home/masoud/.nuget/packages/",
-      "outputPath": "/home/masoud/Public/Projects/PurchaseOrder/Backend/Core/obj/",
+      "outputPath": "/home/masoud/Public/Projects/PurchaseOrderSample/Backend/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/masoud/.nuget/NuGet/NuGet.Config"

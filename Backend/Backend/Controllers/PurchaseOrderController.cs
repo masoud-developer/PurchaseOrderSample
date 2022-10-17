@@ -21,6 +21,18 @@ public class PurchaseOrderController : ControllerBase
         return await _purchaseOrderBusiness.Create(order);
     }
     
+    [HttpGet("get/{orderId:guid}")]
+    public async Task<Result<PurchaseOrder>> Get(Guid orderId)
+    {
+        return await _purchaseOrderBusiness.Get(orderId);
+    }
+    
+    [HttpGet("list")]
+    public async Task<Result<List<PurchaseOrder>>> List()
+    {
+        return await _purchaseOrderBusiness.List();
+    }
+    
     [HttpPut("submit/{orderId:guid}")]
     public async Task<Result<PurchaseOrder>> Submit(Guid orderId)
     {
