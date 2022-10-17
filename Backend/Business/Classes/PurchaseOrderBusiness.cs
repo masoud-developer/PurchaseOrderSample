@@ -40,7 +40,10 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
 
         //save in db
         if (dbOrder == null)
+        {
+            order.Id = Guid.NewGuid();
             await _dbContext.PurchaseOrders.AddAsync(order);
+        }
         else
         {
             dbOrder.Items.Clear();

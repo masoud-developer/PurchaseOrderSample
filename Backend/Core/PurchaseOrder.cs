@@ -6,7 +6,7 @@ public class PurchaseOrder
 {
     public PurchaseOrder()
     {
-        Id = Guid.NewGuid();
+        Id = Guid.Empty;
         CreationTime = DateTime.Now;
         Status = OrderStatus.Draft;
         Name = RandomString.Generate(15);

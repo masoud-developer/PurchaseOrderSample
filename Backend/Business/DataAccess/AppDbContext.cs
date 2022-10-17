@@ -7,16 +7,15 @@ namespace Business.DataAccess;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
     {
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlite("Filename=LocalDatabase.db", options =>
-        {
-            options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
-        });
+        options.UseSqlite("Filename=../Business/LocalDatabase.db",
+            options => { options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName); });
         base.OnConfiguring(options);
         // options.UseSqlite(Configuration.GetConnectionString("WebApiDatabase"));
     }

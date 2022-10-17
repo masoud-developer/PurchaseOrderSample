@@ -18,27 +18,14 @@ import {
   MatTableDataSource,
 } from '@angular/material/table';
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 
-export interface PeriodicElement {
+export interface ListItem {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  creationTime: string;
+  status: number;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-order-list',
@@ -46,20 +33,32 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements AfterViewInit {
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) {
   }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  displayedColumns: string[] = ['name', 'creationTime', 'status'];
+  dataSource = new MatTableDataSource<ListItem>([]);
 
   @ViewChild('sort') sort: MatSort | undefined;
 
   ngAfterViewInit() {
     if (this.sort)
       this.dataSource.sort = this.sort;
+
+    this.http.get('http://localhost:6010/api/v1/PurchaseOrder/list').subscribe((response: any) => {
+        this.dataSource = new MatTableDataSource<ListItem>(response.data);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   navigateToAddOrderPage() {
     this.router.navigateByUrl('/edit-order');
+  }
+
+  navigateToEditOrderPage(id: string) {
+    this.router.navigateByUrl(`/edit-order/${id}`);
   }
 
 }
