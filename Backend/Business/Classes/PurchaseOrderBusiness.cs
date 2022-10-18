@@ -46,7 +46,11 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
         }
         else
         {
-            dbOrder.Items.Clear();
+            var newList = dbOrder.Items.ToList();
+            foreach (var item in newList)
+            {
+                dbOrder.Items.Remove(item);
+            }
             foreach (var item in order.Items)
             {
                 dbOrder.Items.Add(item);
@@ -79,6 +83,9 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
             o.Id == orderId && o.UserId == _currentUserId);
         if (order == null)
             return Result<PurchaseOrder>.Failed("Order not found.");
+        
+        if (order.Status == OrderStatus.Submitted)
+            return Result<PurchaseOrder>.Failed("Order submitted before.");
 
         //check user orders
         var today = DateTime.Now.Date;
