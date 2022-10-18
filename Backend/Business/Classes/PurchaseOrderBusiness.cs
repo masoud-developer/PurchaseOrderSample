@@ -53,7 +53,13 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
             }
             foreach (var item in order.Items)
             {
-                dbOrder.Items.Add(item);
+                _dbContext.PurchaseOrderListItems.Add(new PurchaseOrderListItem
+                {
+                    Amount = item.Amount,
+                    Id = Guid.NewGuid(),
+                    Name = item.Name,
+                    PurchaseOrderId = dbOrder.Id
+                });
             }
         }
 
