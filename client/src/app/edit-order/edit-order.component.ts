@@ -3,6 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {HttpClient} from "@angular/common/http";
 import {ListItem} from "../order-list/order-list.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 interface OrderItem {
   name: string,
@@ -15,23 +16,27 @@ interface OrderItem {
   styleUrls: ['./edit-order.component.scss']
 })
 export class EditOrderComponent implements OnInit {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
   }
 
   currentName: string = '';
   currentAmount: number = 0;
   items: OrderItem[] = [];
-  columns: string[] = ['name', 'amount'];
+  columns: string[] = ['name', 'amount', 'actions'];
   dataSource = new MatTableDataSource<OrderItem>()
   @ViewChild('sort') sort: MatSort | undefined;
 
   ngOnInit(): void {
-    this.http.get('http://localhost:6010/api/v1/PurchaseOrder/get/').subscribe((response: any) => {
-        this.items = response.data.items;
-      },
-      (error) => {
-        console.log(error);
-      });
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.http.get(`http://localhost:6010/api/v1/PurchaseOrder/get/${id}`).subscribe((response: any) => {
+          this.items = response.data.items;
+          this.dataSource = new MatTableDataSource<OrderItem>(this.items);
+        },
+        (error) => {
+          console.log(error);
+        });
+    }
   }
 
   addItem() {
@@ -46,11 +51,22 @@ export class EditOrderComponent implements OnInit {
   }
 
   save() {
-    this.http.post('http://localhost:6010/api/v1/PurchaseOrder/create-or-update', {items: this.items}).subscribe((response: any) => {
+    let body: any = {items: this.items};
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id) body.id = id;
+    this.http.post('http://localhost:6010/api/v1/PurchaseOrder/create-or-update', body).subscribe((response: any) => {
         alert(response.message);
       },
       (error) => {
         console.log(error);
       });
+  }
+
+  remove(element: OrderItem) {
+    let index = this.items.indexOf(element, 0);
+    if (index > -1) {
+      this.items.splice(index, 1);
+      this.dataSource = new MatTableDataSource<OrderItem>(this.items);
+    }
   }
 }

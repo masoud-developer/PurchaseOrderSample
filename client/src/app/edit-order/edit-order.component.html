@@ -27,6 +27,11 @@
       <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="remove(element)">Remove</button> </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row *matRowDef="let row; columns: columns;"></tr>
 

@@ -19,9 +19,9 @@
     <td mat-cell *matCellDef="let element"> {{element.status}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="action">
+  <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let element"> <button mat-raised-button>Edit</button> </td>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="navigateToEditOrderPage(element.id)">Edit</button> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

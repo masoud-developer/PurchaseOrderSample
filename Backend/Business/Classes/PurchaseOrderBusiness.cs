@@ -22,7 +22,7 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
         PurchaseOrder dbOrder = null;
         if (order.Id != Guid.Empty)
         {
-            dbOrder = await _dbContext.PurchaseOrders.FirstOrDefaultAsync(o => o.Id == order.Id);
+            dbOrder = await _dbContext.PurchaseOrders.Include(o => o.Items).FirstOrDefaultAsync(o => o.Id == order.Id);
             if (dbOrder != null && dbOrder.Status == OrderStatus.Submitted)
                 return Result<PurchaseOrder>.Failed("Order and list items cannot be changed because order submitted.");
         }
@@ -66,7 +66,7 @@ public class PurchaseOrderBusiness : IPurchaseOrderBusiness
 
     public async Task<Result<PurchaseOrder>> Get(Guid orderId)
     {
-        var order = _dbContext.PurchaseOrders.FirstOrDefault(o => o.Id == orderId);
+        var order = _dbContext.PurchaseOrders.Include(o => o.Items).FirstOrDefault(o => o.Id == orderId);
         if (order == null)
             return Result<PurchaseOrder>.Failed("Order not found.");
 

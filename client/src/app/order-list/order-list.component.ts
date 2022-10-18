@@ -36,7 +36,7 @@ export class OrderListComponent implements AfterViewInit {
   constructor(private router: Router, private http: HttpClient) {
   }
 
-  displayedColumns: string[] = ['name', 'creationTime', 'status'];
+  displayedColumns: string[] = ['name', 'creationTime', 'status', 'actions'];
   dataSource = new MatTableDataSource<ListItem>([]);
 
   @ViewChild('sort') sort: MatSort | undefined;
