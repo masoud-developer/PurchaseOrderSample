@@ -47,7 +47,15 @@ export class EditOrderComponent implements OnInit {
   }
 
   submit() {
-    // this.http.post()
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.http.put(`http://localhost:6010/api/v1/PurchaseOrder/submit/${id}`, {}).subscribe((response: any) => {
+          alert(response.message);
+        },
+        (error) => {
+          console.log(error);
+        });
+    }
   }
 
   save() {
